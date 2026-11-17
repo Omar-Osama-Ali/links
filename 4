@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Official links, portfolio, GitHub, contact information and payment methods for Omar Osama." />
+<meta name="theme-color" content="#f5f2eb" />
+
+<title>Omar Osama | Link Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#f5f2eb;
+    --surface:#ffffff;
+    --surface-2:#f8f8f6;
+    --text:#1b1b1b;
+    --muted:#666;
+    --border:#dfdfda;
+    --accent:#4e6b47;
+    --accent-hover:#40593a;
+    --shadow:0 10px 30px rgba(0,0,0,.07);
+    --radius:22px;
+}
+
+[data-theme="dark"]{
+    --bg:#101212;
+    --surface:#191b1b;
+    --surface-2:#202424;
+    --text:#f3f3f1;
+    --muted:#a0a0a0;
+    --border:#343636;
+    --accent:#85a87e;
+    --accent-hover:#97ba90;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"IBM Plex Sans",sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px),
+        var(--bg);
+    background-size:32px 32px,32px 32px,auto;
+    color:var(--text);
+    min-height:100vh;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+/* Progress Bar */
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0%;
+    height:4px;
+    background:var(--accent);
+    z-index:9999;
+}
+
+/* Skip Link */
+.skip-link{
+    position:absolute;
+    left:-9999px;
+}
+
+.skip-link:focus{
+    left:16px;
+    top:16px;
+    background:white;
+    padding:12px;
+    z-index:999;
+}
+
+/* Layout */
+.container{
+    max-width:760px;
+    margin:auto;
+    padding:32px 20px 100px;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 0 30px;
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--surface);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    font-size:42px;
+    font-weight:700;
+    color:var(--accent);
+}
+
+h1{
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:clamp(2.4rem,5vw,4rem);
+    margin-top:22px;
+    letter-spacing:-0.04em;
+}
+
+.subtitle{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:1.05rem;
+}
+
+.description{
+    max-width:600px;
+    margin:20px auto 0;
+    color:var(--muted);
+}
+
+/* Top Actions */
+
+.primary-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:30px;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:56px;
+    border-radius:16px;
+    transition:.2s ease;
+    font-weight:600;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-secondary{
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--text);
+}
+
+/* Cards */
+
+.links{
+    margin-top:36px;
+    display:grid;
+    gap:14px;
+}
+
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px;
+    text-decoration:none;
+    color:inherit;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:.22s ease;
+    box-shadow:var(--shadow);
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card-left h3{
+    font-size:1.05rem;
+    margin-bottom:4px;
+}
+
+.card-left p{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+.arrow{
+    font-size:1.3rem;
+    color:var(--accent);
+}
+
+/* Contact */
+
+.contact{
+    margin-top:40px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:var(--shadow);
+}
+
+.contact h2{
+    margin-bottom:18px;
+}
+
+.contact-item{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.contact-item:last-child{
+    border-bottom:none;
+}
+
+.mono{
+    font-family:"IBM Plex Mono",monospace;
+    font-variant-numeric:tabular-nums;
+}
+
+.copy-btn{
+    border:none;
+    background:var(--surface-2);
+    color:var(--text);
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.copy-btn:active{
+    transform:scale(.97);
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding-top:40px;
+    color:var(--muted);
+}
+
+/* Floating Button */
+
+.floating{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--accent);
+    color:white;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.4rem;
+}
+
+/* Theme */
+
+.theme-toggle{
+    position:fixed;
+    right:20px;
+    top:20px;
+    z-index:99;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--surface);
+    cursor:pointer;
+}
+
+/* Toast */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:100px;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--text);
+    color:var(--bg);
+    padding:12px 16px;
+    border-radius:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s ease;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+/* Mobile */
+
+@media(max-width:640px){
+
+.primary-actions{
+    grid-template-columns:1fr;
+}
+
+.contact-item{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+🌙
+</button>
+
+<main id="main" class="container">
+
+<section class="hero">
+
+<div class="avatar">OO</div>
+
+<h1>Omar Osama</h1>
+
+<p class="subtitle">
+Developer • Designer • Builder
+</p>
+
+<p class="description">
+Everything you need to reach Omar Osama in one place. Explore projects, get in touch, or connect through preferred payment methods.
+</p>
+
+<div class="primary-actions">
+<a href="https://omar-osama-ali.github.io/"
+   target="_blank"
+   class="btn btn-primary">
+    Visit Website
+</a>
+
+<a href="https://github.com/Omar-Osama-Ali"
+   target="_blank"
+   class="btn btn-secondary">
+    GitHub
+</a>
+</div>
+
+</section>
+
+<section class="links">
+
+<a class="card"
+   target="_blank"
+   href="https://wa.me/201200140223">
+
+<div class="card-left">
+<h3>WhatsApp</h3>
+<p>Message instantly</p>
+</div>
+
+<span class="arrow">→</span>
+
+</a>
+
+<a class="card"
+   target="_blank"
+   href="mailto:omar.osama2011@yahoo.com">
+
+<div class="card-left">
+<h3>Email</h3>
+<p>omar.osama2011@yahoo.com</p>
+</div>
+
+<span class="arrow">→</span>
+
+</a>
+
+<a class="card"
+   href="tel:+201200140223">
+
+<div class="card-left">
+<h3>Phone</h3>
+<p>Call directly</p>
+</div>
+
+<span class="arrow">→</span>
+
+</a>
+
+<a class="card"
+   target="_blank"
+   href="https://telda.me/omarosama2011">
+
+<div class="card-left">
+<h3>Telda</h3>
+<p>Payment profile</p>
+</div>
+
+<span class="arrow">→</span>
+
+</a>
+
+<a class="card"
+   target="_blank"
+   href="https://ipn.eg/S/omar.osama2011/instapay/8AsH4D">
+
+<div class="card-left">
+<h3>InstaPay</h3>
+<p>Fast transfers</p>
+</div>
+
+<span class="arrow">→</span>
+
+</a>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Details</h2>
+
+<div class="contact-item">
+<div>
+<strong>Email</strong><br>
+<span class="mono">omar.osama2011@yahoo.com</span>
+</div>
+
+<button class="copy-btn"
+onclick="copyText('omar.osama2011@yahoo.com')">
+Copy
+</button>
+</div>
+
+<div class="contact-item">
+
+<div>
+<strong>Phone</strong><br>
+<span class="mono">01200140223</span>
+</div>
+
+<button class="copy-btn"
+onclick="copyText('01200140223')">
+Copy
+</button>
+
+</div>
+
+<div class="contact-item">
+
+<div>
+<strong>WhatsApp</strong><br>
+<span class="mono">+20 120 014 0223</span>
+</div>
+
+<button class="copy-btn"
+onclick="copyText('+201200140223')">
+Copy
+</button>
+
+</div>
+
+</section>
+
+<footer>
+<p>© <span id="year"></span> Omar Osama. All rights reserved.</p>
+</footer>
+
+</main>
+
+<a
+class="floating"
+href="https://wa.me/201200140223"
+target="_blank"
+aria-label="WhatsApp">
+✆
+</a>
+
+<div id="toast" class="toast">
+Copied successfully
+</div>
+
+<script>
+
+/* Copyright */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+/* Scroll Progress */
+
+const progress = document.getElementById("progress");
+
+window.addEventListener("scroll", () => {
+
+const total =
+document.documentElement.scrollHeight -
+window.innerHeight;
+
+const current =
+(window.scrollY / total) * 100;
+
+progress.style.width = current + "%";
+
+});
+
+/* Theme */
+
+const toggle =
+document.getElementById("themeToggle");
+
+const stored =
+localStorage.getItem("theme");
+
+if(stored){
+document.documentElement.setAttribute(
+"data-theme",
+stored
+);
+toggle.textContent=
+stored==="dark"?"☀️":"🌙";
+}
+
+toggle.addEventListener("click",()=>{
+
+const current=
+document.documentElement.getAttribute("data-theme");
+
+if(current==="dark"){
+
+document.documentElement.removeAttribute("data-theme");
+
+localStorage.setItem("theme","light");
+
+toggle.textContent="🌙";
+
+}else{
+
+document.documentElement.setAttribute(
+"data-theme",
+"dark"
+);
+
+localStorage.setItem("theme","dark");
+
+toggle.textContent="☀️";
+
+}
+
+});
+
+/* Copy */
+
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+
+const toast =
+document.getElementById("toast");
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2000);
+
+}
+
+/* Reduce Motion */
+
+if (
+window.matchMedia(
+'(prefers-reduced-motion: reduce)'
+).matches
+){
+document.documentElement.style.scrollBehavior='auto';
+}
+
+</script>
+
+</body>
+</html>
