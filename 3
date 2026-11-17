@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Omar Osama - Links</title>
+    
+    <!-- SEO & Meta -->
+    <meta name="description" content="Connect with Omar Osama. Find links to GitHub, Portfolio, WhatsApp, and payment methods like Telda and InstaPay.">
+    <link rel="canonical" href="https://your-domain.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Omar Osama - Links">
+    <meta property="og:description" content="Connect with Omar Osama.">
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>O</text></svg>">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Omar Osama",
+      "url": "https://your-domain.com/",
+      "sameAs": [
+        "https://github.com/Omar-Osama-Ali",
+        "https://omar-osama-ali.github.io/"
+      ]
+    }
+    </script>
+
+    <style>
+        /* OKLCH Color System & Variables */
+        :root {
+            --bg: oklch(98% 0.01 240);
+            --text: oklch(20% 0.02 240);
+            --text-muted: oklch(50% 0.02 240);
+            --primary: oklch(50% 0.15 250);
+            --primary-hover: oklch(45% 0.15 250);
+            --surface: oklch(100% 0 0);
+            --border: oklch(90% 0.01 240);
+            --radius: 8px; /* No pill buttons */
+            --grid-dot: oklch(85% 0.01 240);
+        }
+
+        [data-theme="dark"] {
+            --bg: oklch(15% 0.01 240);
+            --text: oklch(95% 0.01 240);
+            --text-muted: oklch(70% 0.01 240);
+            --primary: oklch(70% 0.15 250);
+            --primary-hover: oklch(75% 0.15 250);
+            --surface: oklch(20% 0.01 240);
+            --border: oklch(30% 0.01 240);
+            --grid-dot: oklch(25% 0.01 240);
+        }
+
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Safe Area & Square-Dot Grid */
+            padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+            background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+            background-size: 24px 24px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Sticky Header */
+        header {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 44px;
+            height: 44px; /* Touch target */
+            border-radius: var(--radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s ease-out, background-color 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.97); /* Scale to 0.97 on press */
+        }
+
+        /* Main Content */
+        main {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--surface);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: var(--surface);
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em; /* Kerning/Tracking */
+            color: var(--text);
+        }
+
+        /* Link List */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .link-item {
+            width: 100%;
+            /* Stagger animation setup */
+            opacity: 0;
+            animation: slideUp 0.4s ease-out forwards;
+            animation-delay: calc(var(--i) * 30ms); /* Stagger list rows by 30ms */
+        }
+
+        .link-anchor {
+            display: flex;
+            align-items: center;
+            background-color: var(--surface);
+            color: var(--text);
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: transform 0.15s ease-out, background-color 0.2s, border-color 0.2s;
+            min-height: 56px; /* Touch target */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .link-anchor:hover {
+            background-color: var(--bg);
+            border-color: var(--primary);
+        }
+
+        .link-anchor:active {
+            transform: scale(0.97); /* Scale to 0.97 on press */
+        }
+
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+            fill: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Tabular numbers for phone/numbers */
+        .tabular {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.05em;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s, background 0.2s;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .copy-btn:hover {
+            color: var(--primary);
+            background: var(--bg);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Success state for copy */
+        .copy-btn.copied {
+            color: green;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Utility Classes */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <!-- Sun SVG -->
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <!-- Moon SVG (Hidden by default) -->
+            <svg id="icon-moon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </header>
+
+    <main>
+        <div class="profile">
+            <div class="avatar-container">
+                <!-- Replace the src with the actual image path -->
+                <img src="https://via.placeholder.com/200x200?text=Omar+Osama" alt="Omar Osama Profile Picture" width="110" height="110">
+            </div>
+            <h1>Omar Osama</h1>
+        </div>
+
+        <ul class="links-list">
+            <!-- GitHub -->
+            <li class="link-item" style="--i: 1;">
+                <a href="https://github.com/Omar-Osama-Ali" class="link-anchor" target="_blank" rel="noopener noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    <span class="link-text">GitHub</span>
+                </a>
+            </li>
+
+            <!-- Portfolio -->
+            <li class="link-item" style="--i: 2;">
+                <a href="https://omar-osama-ali.github.io/" class="link-anchor" target="_blank" rel="noopener noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span class="link-text">Portfolio</span>
+                </a>
+            </li>
+
+            <!-- WhatsApp -->
+            <li class="link-item" style="--i: 3;">
+                <a href="https://wa.me/201200140223" class="link-anchor" target="_blank" rel="noopener noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    <span class="link-text">WhatsApp</span>
+                </a>
+            </li>
+
+            <!-- Email -->
+            <li class="link-item" style="--i: 4;">
+                <a href="mailto:omar.osama2011@yahoo.com" class="link-anchor">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span class="link-text">Email</span>
+                </a>
+            </li>
+
+            <!-- Telda -->
+            <li class="link-item" style="--i: 5;">
+                <a href="https://telda.me/omarosama2011" class="link-anchor" target="_blank" rel="noopener noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span class="link-text">Telda</span>
+                </a>
+            </li>
+
+            <!-- InstaPay -->
+            <li class="link-item" style="--i: 6;">
+                <a href="https://ipn.eg/S/omar.osama2011/instapay/8AsH4D" class="link-anchor" target="_blank" rel="noopener noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    <span class="link-text">InstaPay</span>
+                </a>
+            </li>
+
+            <!-- Phone (Clickable + Copyable + Tabular) -->
+            <li class="link-item" style="--i: 7;">
+                <div class="link-anchor" style="padding-right: 8px;">
+                    <a href="tel:01200140223" style="display:flex; align-items:center; flex:1; text-decoration:none; color:inherit;">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span class="link-text tabular">01200140223</span>
+                    </a>
+                    <button class="copy-btn" data-copy="01200140223" aria-label="Copy phone number">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year">2024</span> Omar Osama. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 1. Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.setAttribute('data-theme', 'dark');
+            iconSun.style.display = 'none';
+            iconMoon.style.display = 'block';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                iconSun.style.display = 'block';
+                iconMoon.style.display = 'none';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                iconSun.style.display = 'none';
+                iconMoon.style.display = 'block';
+            }
+        });
+
+        // 2. Copy to Clipboard
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        
+        copyButtons.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const textToCopy = btn.getAttribute('data-copy');
+                
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    
+                    // Visual feedback (Pulse to confirm success)
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+                    btn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy', err);
+                }
+            });
+        });
+
+        // 3. Dynamic Footer Year (Fix copyright year)
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
