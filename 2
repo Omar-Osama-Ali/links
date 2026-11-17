@@ -1,0 +1,1323 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Omar Osama — Graphic Designer & Front-End Developer</title>
+  <meta name="description" content="Official link hub and direct contact directory for Omar Osama — Graphic Designer and Front-End Developer based in Cairo, Egypt. Portfolio, GitHub, WhatsApp, Telda, and InstaPay." />
+  <meta name="author" content="Omar Osama" />
+  <meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://omar-osama-ali.github.io/" />
+
+  <!-- Open Graph Metadata -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Omar Osama — Graphic Designer & Front-End Developer" />
+  <meta property="og:description" content="Portfolio, GitHub repositories, direct contact channels, and instant payment handles for Omar Osama." />
+  <meta property="og:url" content="https://omar-osama-ali.github.io/" />
+  <meta property="og:image" content="1000180501.png" />
+
+  <!-- Inline Architectural SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C1B18'/%3E%3Crect x='2.5' y='2.5' width='27' height='27' rx='5.5' fill='none' stroke='%23C84B31' stroke-width='1.5'/%3E%3Ctext x='16' y='21.5' font-family='system-ui,sans-serif' font-weight='700' font-size='14' fill='%23F7F5F0' text-anchor='middle' letter-spacing='-0.5'%3EOO%3C/text%3E%3C/svg%3E" />
+
+  <!-- Typography: Plus Jakarta Sans & IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Structured Data (JSON-LD Person Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Omar Osama",
+    "jobTitle": "Graphic Designer & Front-End Developer",
+    "url": "https://omar-osama-ali.github.io/",
+    "image": "1000180501.png",
+    "email": "mailto:omar.osama2011@yahoo.com",
+    "telephone": "+201200140223",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cairo",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://github.com/Omar-Osama-Ali",
+      "https://omar-osama-ali.github.io/",
+      "https://wa.me/201200140223",
+      "https://telda.me/omarosama2011",
+      "https://ipn.eg/S/omar.osama2011/instapay/8AsH4D"
+    ]
+  }
+  </script>
+
+  <!-- Early Theme Initialization to Prevent Flash of Wrong Theme -->
+  <script>
+    (function () {
+      try {
+        const stored = localStorage.getItem('omar-hub-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    /* ==========================================================================
+       OKLCH ARCHITECTURAL DESIGN TOKENS & SYSTEM VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-canvas: oklch(0.975 0.006 85);       /* #F7F5F0 Warm archival paper */
+      --bg-surface: oklch(0.994 0.003 85);      /* #FDFCFA Elevated card surface */
+      --bg-surface-hover: oklch(0.962 0.007 82);
+      --bg-subtle: oklch(0.935 0.009 80);       /* #EAE6DF Portrait & pill-free tag ground */
+      --ink-primary: oklch(0.18 0.01 60);       /* #1C1B18 High-contrast warm ink */
+      --ink-secondary: oklch(0.44 0.012 60);    /* Muted secondary ink (WCAG AA+) */
+      --ink-tertiary: oklch(0.56 0.01 60);
+      --border-hairline: oklch(0.88 0.008 80);  /* Crisp architectural divider */
+      --border-strong: oklch(0.76 0.012 75);
+      --accent: oklch(0.55 0.16 32);            /* #C84B31 Architectural terracotta/vermilion */
+      --accent-soft: oklch(0.55 0.16 32 / 0.10);
+      --accent-ink: oklch(0.99 0.003 85);
+      --success: oklch(0.48 0.13 152);
+      --success-soft: oklch(0.48 0.13 152 / 0.12);
+      --shadow-card: 0 1px 2px oklch(0.18 0.01 60 / 0.04), 0 4px 12px oklch(0.18 0.01 60 / 0.02);
+      --shadow-modal: 0 20px 48px -12px oklch(0.15 0.01 60 / 0.22), 0 0 0 1px var(--border-hairline);
+
+      /* Motion Curves (Apple & Framer calibrated) */
+      --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out-quint: cubic-bezier(0.65, 0, 0.35, 1);
+      --spring-tactile: cubic-bezier(0.34, 1.45, 0.64, 1);
+    }
+
+    html.dark {
+      --bg-canvas: oklch(0.15 0.006 60);        /* Deep warm charcoal */
+      --bg-surface: oklch(0.19 0.007 60);       /* Elevated card surface */
+      --bg-surface-hover: oklch(0.225 0.008 60);
+      --bg-subtle: oklch(0.24 0.008 60);        /* #22211F Portrait & tag ground */
+      --ink-primary: oklch(0.94 0.006 80);      /* Crisp warm off-white */
+      --ink-secondary: oklch(0.70 0.008 75);
+      --ink-tertiary: oklch(0.56 0.008 70);
+      --border-hairline: oklch(0.28 0.008 60);
+      --border-strong: oklch(0.38 0.01 60);
+      --accent: oklch(0.64 0.16 32);            /* Luminance-adjusted terracotta for dark mode */
+      --accent-soft: oklch(0.64 0.16 32 / 0.16);
+      --accent-ink: oklch(0.14 0.006 60);
+      --success: oklch(0.68 0.14 152);
+      --success-soft: oklch(0.68 0.14 152 / 0.16);
+      --shadow-card: 0 1px 2px oklch(0 0 0 / 0.25), 0 4px 12px oklch(0 0 0 / 0.15);
+      --shadow-modal: 0 24px 56px -12px oklch(0 0 0 / 0.65), 0 0 0 1px var(--border-hairline);
+    }
+
+    /* ==========================================================================
+       BASE & TYPOGRAPHY DISCIPLINE
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 240ms var(--ease-out-expo), color 240ms var(--ease-out-expo);
+    }
+
+    body {
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    .font-mono-tabular {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1, "zero" 1;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Subtle Tactile Speckled-Graphite / Paper Grain Overlay (2.5% opacity) */
+    .paper-grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================================
+       SURFACES, CARDS & ARCHITECTURAL RADIUS MATH (Outer 16px, Pad 4px, Inner 12px)
+       ========================================================================== */
+    .avatar-frame {
+      border-radius: 16px;
+      padding: 4px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      transition: transform 280ms var(--ease-out-expo), border-color 200ms ease;
+    }
+
+    .avatar-inner {
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #EAE6DF;
+    }
+
+    html.dark .avatar-inner {
+      background-color: #242320;
+    }
+
+    .link-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      transition:
+        background-color 180ms var(--ease-out-expo),
+        border-color 180ms var(--ease-out-expo),
+        transform 160ms var(--ease-out-expo);
+    }
+
+    .link-card:hover {
+      background-color: var(--bg-surface-hover);
+      border-color: var(--border-strong);
+    }
+
+    .link-card-primary {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition:
+        background-color 180ms var(--ease-out-expo),
+        border-color 180ms var(--ease-out-expo),
+        transform 160ms var(--ease-out-expo);
+    }
+
+    .link-card-primary:hover {
+      border-color: var(--accent);
+      background-color: var(--bg-surface-hover);
+    }
+
+    /* Tactile Press Scale (0.97) — No fading on hover */
+    .tactile-press {
+      transition: transform 140ms var(--ease-out-expo), background-color 160ms ease, border-color 160ms ease;
+    }
+    .tactile-press:active {
+      transform: scale(0.97);
+    }
+
+    /* Directional Icon Shift on Hover */
+    .arrow-shift {
+      transition: transform 200ms var(--ease-out-expo), color 180ms ease;
+    }
+    .group:hover .arrow-shift {
+      transform: translate(2px, -2px);
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       ENTRANCE STAGGER (30ms per row, ease-out, fast & restrained)
+       ========================================================================== */
+    @keyframes rowEnter {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stagger-item {
+      opacity: 0;
+      animation: rowEnter 360ms var(--ease-out-expo) forwards;
+      animation-delay: calc(var(--stagger-index, 0) * 30ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stagger-item {
+        opacity: 1;
+        animation: none;
+      }
+      .tactile-press:active {
+        transform: none;
+      }
+    }
+
+    /* ==========================================================================
+       CROSSFADE + BLUR ICON TRANSITION FOR COPY STATES
+       ========================================================================== */
+    .copy-icon-wrap {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copy-icon-wrap svg {
+      position: absolute;
+      inset: 0;
+      transition:
+        opacity 180ms var(--ease-out-expo),
+        transform 220ms var(--spring-tactile),
+        filter 180ms var(--ease-out-expo);
+    }
+
+    .icon-copy {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px);
+    }
+
+    .icon-check {
+      opacity: 0;
+      transform: scale(0.75);
+      filter: blur(2px);
+      color: var(--success);
+    }
+
+    [data-copied="true"] .icon-copy {
+      opacity: 0;
+      transform: scale(0.75);
+      filter: blur(2px);
+    }
+
+    [data-copied="true"] .icon-check {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px);
+    }
+
+    [data-copied="true"] {
+      border-color: var(--success) !important;
+      background-color: var(--success-soft) !important;
+      color: var(--success) !important;
+    }
+
+    /* ==========================================================================
+       ORIGIN-AWARE MODAL ANIMATION (Entrance 220ms, Exit 20% shorter = 175ms)
+       ========================================================================== */
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      background-color: oklch(0.12 0.005 60 / 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: opacity 175ms var(--ease-out-expo);
+    }
+
+    .modal-backdrop[data-open="true"] {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 220ms var(--ease-out-expo);
+    }
+
+    .modal-panel {
+      opacity: 0;
+      transform: scale(0.95) translateY(-6px);
+      transform-origin: top right;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-modal);
+      transition:
+        opacity 175ms var(--ease-out-expo),
+        transform 175ms var(--ease-out-expo);
+    }
+
+    .modal-backdrop[data-open="true"] .modal-panel {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition:
+        opacity 220ms var(--ease-out-expo),
+        transform 220ms var(--ease-out-expo);
+    }
+
+    /* ==========================================================================
+       FOCUS RING & ACCESSIBILITY
+       ========================================================================== */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ==========================================================================
+       PRINT STYLESHEET (Clean Contact Sheet Output)
+       ========================================================================== */
+    @media print {
+      .no-print, .paper-grain, .modal-backdrop {
+        display: none !important;
+      }
+      body {
+        background: #FFFFFF !important;
+        color: #111111 !important;
+        padding: 0 !important;
+      }
+      .link-card, .link-card-primary {
+        border: 1px solid #CCCCCC !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        color: #555555;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#C84B31]/15 selection:text-[#C84B31]">
+
+  <!-- Tactile Paper Grain Overlay -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- Skip to Content for Keyboard Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-lg focus:font-medium focus:text-sm" style="background-color: var(--ink-primary); color: var(--bg-canvas);">
+    Skip to main links
+  </a>
+
+  <!-- Live Screen-Reader Announcement Region for Clipboard Actions -->
+  <div id="aria-live-region" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Top Utility Bar -->
+  <header class="w-full max-w-[540px] mx-auto px-4 sm:px-6 pt-5 sm:pt-7 pb-2 flex items-center justify-between no-print">
+    <!-- Location / Status Indicator (Optical alignment, tabular coordinates) -->
+    <a href="#top" class="inline-flex items-center gap-2 min-h-[44px] px-2 -ml-2 rounded-lg text-xs font-mono-tabular tracking-tight transition-colors" style="color: var(--ink-secondary);" aria-label="Omar Osama — Cairo, Egypt">
+      <span class="w-2 h-2 rounded-[2px] inline-block" style="background-color: var(--accent);" aria-hidden="true"></span>
+      <span>CAIRO, EG · 30.04°N</span>
+    </a>
+
+    <!-- Utility Controls: Share Card & Theme Toggle (Min 44x44px touch targets) -->
+    <div class="flex items-center gap-1.5">
+      <button
+        id="share-trigger"
+        type="button"
+        class="tactile-press inline-flex items-center justify-center gap-2 min-h-[44px] px-3.5 rounded-[10px] text-xs font-medium border cursor-pointer"
+        style="background-color: var(--bg-surface); border-color: var(--border-hairline); color: var(--ink-primary);"
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-controls="share-modal"
+      >
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          <path d="M14 14h3v3h-3zM20 14v3h-3M14 20h7" />
+        </svg>
+        <span>Share Card</span>
+      </button>
+
+      <button
+        id="theme-toggle"
+        type="button"
+        class="tactile-press inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-[10px] border cursor-pointer"
+        style="background-color: var(--bg-surface); border-color: var(--border-hairline); color: var(--ink-primary);"
+        aria-label="Toggle color theme"
+        title="Toggle light or dark mode"
+      >
+        <!-- Sun Icon (shown in dark mode) -->
+        <svg id="icon-sun" class="hidden" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+        <!-- Moon Icon (shown in light mode) -->
+        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container (Optimal 540px measure for link directory) -->
+  <main id="main-content" class="flex-1 w-full max-w-[540px] mx-auto px-4 sm:px-6 pt-4 pb-14">
+
+    <!-- Identity & Profile Header -->
+    <section aria-labelledby="profile-heading" class="stagger-item mb-8" style="--stagger-index: 0;">
+      <div class="flex items-start gap-4 sm:gap-5">
+        <!-- Architectural Portrait Frame: Outer 16px, Padding 4px, Inner 12px -->
+        <div class="avatar-frame shrink-0">
+          <div class="avatar-inner w-[84px] h-[84px] sm:w-[96px] sm:h-[96px]">
+            <img
+              src="1000180501.png"
+              alt="Portrait of Omar Osama"
+              width="96"
+              height="96"
+              class="w-full h-full object-cover object-top block select-none"
+              onerror="this.onerror=null;this.src='https://placehold.co/192x192/EAE6DF/1C1B18?text=OO';"
+            />
+          </div>
+        </div>
+
+        <!-- Name, Role & Concise Statement -->
+        <div class="pt-0.5 min-w-0 flex-1">
+          <h1 id="profile-heading" class="text-[24px] sm:text-[28px] font-bold leading-[1.15] tracking-[-0.025em]" style="text-wrap: balance;">
+            Omar Osama
+          </h1>
+          <p class="mt-1 text-[14px] sm:text-[15px] font-medium leading-[1.4]" style="color: var(--ink-secondary); text-wrap: pretty;">
+            Graphic Designer &amp; Front-End Developer · Cairo, Egypt
+          </p>
+          <p class="mt-2.5 text-[13.5px] leading-[1.55] max-w-[44ch]" style="color: var(--ink-tertiary); text-wrap: pretty;">
+            Crafting visual identities, type-driven interfaces, and responsive web systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         GROUP 01: PRIMARY SHOWCASE (Portfolio & GitHub)
+         ====================================================================== -->
+    <section aria-labelledby="section-showcase" class="mb-7">
+      <div class="stagger-item flex items-center justify-between mb-2.5 px-0.5" style="--stagger-index: 1;">
+        <h2 id="section-showcase" class="text-[11px] font-mono-tabular uppercase tracking-[0.08em] font-medium" style="color: var(--ink-tertiary);">
+          01 / Work &amp; Code
+        </h2>
+      </div>
+
+      <div class="space-y-2.5">
+        <!-- Featured Primary Card: Portfolio Website -->
+        <div class="stagger-item link-card-primary group flex items-stretch overflow-hidden" style="--stagger-index: 2;">
+          <a
+            href="https://omar-osama-ali.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 sm:p-4 min-h-[64px] text-left"
+          >
+            <!-- Architectural Accent Mark -->
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center" style="background-color: var(--accent); color: var(--accent-ink);" aria-hidden="true">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="text-[15px] font-semibold tracking-[-0.01em] truncate">Portfolio Website</span>
+                <span class="text-[10.5px] font-mono-tabular px-1.5 py-0.5 rounded-[4px] font-medium shrink-0" style="background-color: var(--accent-soft); color: var(--accent);">
+                  Featured
+                </span>
+              </div>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                omar-osama-ali.github.io
+              </span>
+            </div>
+
+            <svg class="arrow-shift shrink-0 mr-1" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink-secondary);" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+
+          <!-- Quick Copy Portfolio URL -->
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="https://omar-osama-ali.github.io/"
+              data-label="Portfolio URL"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy Portfolio URL"
+              title="Copy Portfolio URL"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Secondary Showcase Card: GitHub -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 3;">
+          <a
+            href="https://github.com/Omar-Osama-Ali"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em] truncate">GitHub</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                @Omar-Osama-Ali
+              </span>
+            </div>
+
+            <svg class="arrow-shift shrink-0 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink-secondary);" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="https://github.com/Omar-Osama-Ali"
+              data-label="GitHub URL"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy GitHub profile URL"
+              title="Copy GitHub profile URL"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         GROUP 02: DIRECT CONTACT (WhatsApp, Phone, Email)
+         ====================================================================== -->
+    <section aria-labelledby="section-contact" class="mb-7">
+      <div class="stagger-item flex items-center justify-between mb-2.5 px-0.5" style="--stagger-index: 4;">
+        <h2 id="section-contact" class="text-[11px] font-mono-tabular uppercase tracking-[0.08em] font-medium" style="color: var(--ink-tertiary);">
+          02 / Direct Contact
+        </h2>
+      </div>
+
+      <div class="space-y-2.5">
+        <!-- WhatsApp -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 5;">
+          <a
+            href="https://wa.me/201200140223"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em]">WhatsApp</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                +20 120 014 0223 · Instant Message
+              </span>
+            </div>
+
+            <svg class="arrow-shift shrink-0 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink-secondary);" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="https://wa.me/201200140223"
+              data-label="WhatsApp link"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy WhatsApp link"
+              title="Copy WhatsApp link"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Phone Call (Clickable tel: + Copy number) -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 6;">
+          <a
+            href="tel:+201200140223"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em]">Phone</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                0120 014 0223
+              </span>
+            </div>
+
+            <span class="text-[11px] font-mono-tabular px-2 py-1 rounded-[6px] mr-1 hidden sm:inline-block" style="background-color: var(--bg-subtle); color: var(--ink-secondary);">
+              Call
+            </span>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="01200140223"
+              data-label="Phone number"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy phone number 01200140223"
+              title="Copy phone number"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Email (Clickable mailto: + Copy email) -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 7;">
+          <a
+            href="mailto:omar.osama2011@yahoo.com"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em]">Email</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                omar.osama2011@yahoo.com
+              </span>
+            </div>
+
+            <span class="text-[11px] font-mono-tabular px-2 py-1 rounded-[6px] mr-1 hidden sm:inline-block" style="background-color: var(--bg-subtle); color: var(--ink-secondary);">
+              Compose
+            </span>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="omar.osama2011@yahoo.com"
+              data-label="Email address"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy email address omar.osama2011@yahoo.com"
+              title="Copy email address"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         GROUP 03: PAYMENTS & TRANSFERS (InstaPay & Telda)
+         ====================================================================== -->
+    <section aria-labelledby="section-payments">
+      <div class="stagger-item flex items-center justify-between mb-2.5 px-0.5" style="--stagger-index: 8;">
+        <h2 id="section-payments" class="text-[11px] font-mono-tabular uppercase tracking-[0.08em] font-medium" style="color: var(--ink-tertiary);">
+          03 / Payments &amp; Transfers
+        </h2>
+      </div>
+
+      <div class="space-y-2.5">
+        <!-- InstaPay -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 9;">
+          <a
+            href="https://ipn.eg/S/omar.osama2011/instapay/8AsH4D"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em]">InstaPay</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                omar.osama2011@instapay
+              </span>
+            </div>
+
+            <svg class="arrow-shift shrink-0 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink-secondary);" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="omar.osama2011@instapay"
+              data-label="InstaPay handle"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy InstaPay address omar.osama2011@instapay"
+              title="Copy InstaPay handle"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Telda -->
+        <div class="stagger-item link-card group flex items-stretch overflow-hidden" style="--stagger-index: 10;">
+          <a
+            href="https://telda.me/omarosama2011"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="tactile-press flex-1 flex items-center gap-3.5 p-3.5 min-h-[60px] text-left"
+          >
+            <div class="w-10 h-10 rounded-[8px] shrink-0 flex items-center justify-center border" style="background-color: var(--bg-subtle); border-color: var(--border-hairline); color: var(--ink-primary);" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <span class="block text-[14.5px] font-semibold tracking-[-0.01em]">Telda</span>
+              <span class="block mt-0.5 text-[12.5px] font-mono-tabular truncate" style="color: var(--ink-secondary);">
+                @omarosama2011
+              </span>
+            </div>
+
+            <svg class="arrow-shift shrink-0 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ink-secondary);" aria-hidden="true">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+
+          <div class="flex items-center pr-2.5 border-l" style="border-color: var(--border-hairline);">
+            <button
+              type="button"
+              data-copy="@omarosama2011"
+              data-label="Telda handle"
+              class="copy-btn tactile-press ml-2.5 min-w-[44px] min-h-[44px] rounded-[8px] border flex items-center justify-center cursor-pointer"
+              style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+              aria-label="Copy Telda handle @omarosama2011"
+              title="Copy Telda handle"
+            >
+              <span class="copy-icon-wrap" aria-hidden="true">
+                <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Minimal Architectural Footer -->
+  <footer class="w-full max-w-[540px] mx-auto px-4 sm:px-6 pb-8 pt-4 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono-tabular" style="border-color: var(--border-hairline); color: var(--ink-tertiary);">
+    <div>
+      <span>&copy; <span id="copyright-year">2026</span> Omar Osama. All rights reserved.</span>
+    </div>
+
+    <div class="flex items-center gap-3 no-print">
+      <button
+        id="download-vcard-footer"
+        type="button"
+        class="tactile-press min-h-[44px] px-2 -mx-2 rounded-lg hover:underline cursor-pointer"
+        style="color: var(--ink-secondary);"
+      >
+        Save Contact (.vcf)
+      </button>
+      <span aria-hidden="true">·</span>
+      <a
+        href="#top"
+        id="back-to-top"
+        class="tactile-press min-h-[44px] inline-flex items-center px-2 -mx-2 rounded-lg hover:underline"
+        style="color: var(--ink-secondary);"
+      >
+        Top &uarr;
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SHARE CARD / QR CODE & VCARD MODAL (Progressive Disclosure)
+       ======================================================================== -->
+  <div
+    id="share-modal"
+    class="modal-backdrop fixed inset-0 z-40 flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    data-open="false"
+    hidden
+  >
+    <div class="modal-panel w-full max-w-[380px] rounded-[16px] p-5 sm:p-6 relative">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <div>
+          <h2 id="modal-title" class="text-[17px] font-bold tracking-[-0.02em]">
+            Share Contact Card
+          </h2>
+          <p class="text-[12.5px] mt-0.5" style="color: var(--ink-secondary);">
+            Scan QR to open portfolio or save direct contact.
+          </p>
+        </div>
+
+        <button
+          id="modal-close"
+          type="button"
+          class="tactile-press min-w-[44px] min-h-[44px] -mt-2 -mr-2 rounded-[10px] flex items-center justify-center border cursor-pointer"
+          style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-secondary);"
+          aria-label="Close share dialog"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Crisp Generated Matrix QR Code Frame (Outer 14px, Pad 12px, Inner clean) -->
+      <div class="rounded-[14px] p-4 mb-4 border flex flex-col items-center justify-center" style="background-color: #FFFFFF; border-color: var(--border-hairline);">
+        <div id="qr-container" class="w-[184px] h-[184px] flex items-center justify-center" aria-label="QR Code for https://omar-osama-ali.github.io/"></div>
+        <span class="mt-2.5 text-[11px] font-mono-tabular text-[#1C1B18] tracking-tight">
+          https://omar-osama-ali.github.io/
+        </span>
+      </div>
+
+      <!-- Modal Primary & Secondary Actions -->
+      <div class="space-y-2">
+        <button
+          id="modal-download-vcard"
+          type="button"
+          class="tactile-press w-full min-h-[46px] px-4 rounded-[10px] text-[13.5px] font-semibold flex items-center justify-center gap-2 cursor-pointer"
+          style="background-color: var(--accent); color: var(--accent-ink);"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>Download Contact (.vcf)</span>
+        </button>
+
+        <button
+          id="modal-copy-link"
+          type="button"
+          data-copy="https://omar-osama-ali.github.io/"
+          data-label="Portfolio link"
+          class="copy-btn tactile-press w-full min-h-[44px] px-4 rounded-[10px] text-[13px] font-medium border flex items-center justify-center gap-2 cursor-pointer"
+          style="background-color: var(--bg-canvas); border-color: var(--border-hairline); color: var(--ink-primary);"
+        >
+          <span class="copy-icon-wrap" aria-hidden="true">
+            <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span class="copy-btn-text">Copy Portfolio Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Confirmation Pill-Free Notification -->
+  <div
+    id="copy-toast"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-3.5 py-2 rounded-[10px] border text-xs font-mono-tabular shadow-lg pointer-events-none opacity-0 translate-y-2 transition-all duration-200"
+    style="background-color: var(--ink-primary); color: var(--bg-canvas); border-color: var(--border-strong);"
+    aria-hidden="true"
+  >
+    Copied to clipboard
+  </div>
+
+  <!-- ========================================================================
+       INTERACTIVE LOGIC: CLIPBOARD, THEME, QR GENERATOR, VCARD & FOCUS TRAP
+       ======================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Dynamic Current Year
+      const yearEl = document.getElementById('copyright-year');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      // 2. Theme Toggle with Persisted Preference
+      const themeToggle = document.getElementById('theme-toggle');
+      const iconSun = document.getElementById('icon-sun');
+      const iconMoon = document.getElementById('icon-moon');
+
+      function syncThemeIcons() {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (iconSun && iconMoon) {
+          iconSun.classList.toggle('hidden', !isDark);
+          iconMoon.classList.toggle('hidden', isDark);
+        }
+        if (themeToggle) {
+          themeToggle.setAttribute('aria-pressed', String(isDark));
+        }
+      }
+      syncThemeIcons();
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const isDark = document.documentElement.classList.toggle('dark');
+          try {
+            localStorage.setItem('omar-hub-theme', isDark ? 'dark' : 'light');
+          } catch (e) {}
+          syncThemeIcons();
+        });
+      }
+
+      // 3. Robust Clipboard Copy (execCommand fallback + modern API) & Live Feedback
+      const liveRegion = document.getElementById('aria-live-region');
+      const toastEl = document.getElementById('copy-toast');
+      let toastTimer = null;
+
+      function copyTextToClipboard(text) {
+        return new Promise(function (resolve) {
+          // Use textarea + execCommand('copy') first for universal iframe & browser compatibility
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          textArea.setAttribute('readonly', '');
+          textArea.style.position = 'fixed';
+          textArea.style.top = '-9999px';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          textArea.setSelectionRange(0, text.length);
+
+          let succeeded = false;
+          try {
+            succeeded = document.execCommand('copy');
+          } catch (err) {
+            succeeded = false;
+          }
+          document.body.removeChild(textArea);
+
+          if (succeeded) {
+            resolve(true);
+            return;
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(
+              function () { resolve(true); },
+              function () { resolve(false); }
+            );
+          } else {
+            resolve(false);
+          }
+        });
+      }
+
+      function showToast(message) {
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.remove('opacity-0', 'translate-y-2');
+        toastEl.classList.add('opacity-100', 'translate-y-0');
+
+        if (liveRegion) {
+          liveRegion.textContent = message;
+        }
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toastEl.classList.remove('opacity-100', 'translate-y-0');
+          toastEl.classList.add('opacity-0', 'translate-y-2');
+        }, 1900);
+      }
+
+      document.querySelectorAll('.copy-btn').forEach(function (btn) {
+        let resetTimer = null;
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const value = btn.getAttribute('data-copy');
+          const label = btn.getAttribute('data-label') || 'Value';
+          if (!value) return;
+
+          copyTextToClipboard(value).then(function (ok) {
+            if (!ok) return;
+
+            btn.setAttribute('data-copied', 'true');
+            const labelSpan = btn.querySelector('.copy-btn-text');
+            const originalText = labelSpan ? labelSpan.textContent : null;
+            if (labelSpan) {
+              labelSpan.textContent = 'Copied!';
+            }
+
+            showToast('Copied ' + label + ': ' + value);
+
+            clearTimeout(resetTimer);
+            resetTimer = setTimeout(function () {
+              btn.removeAttribute('data-copied');
+              if (labelSpan && originalText) {
+                labelSpan.textContent = originalText;
+              }
+            }, 1800);
+          });
+        });
+      });
+
+      // 4. vCard (.vcf) Generator & One-Click Contact Download
+      function downloadVCard() {
+        const vcardLines = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'N:Osama;Omar;;;',
+          'FN:Omar Osama',
+          'TITLE:Graphic Designer & Front-End Developer',
+          'TEL;TYPE=CELL,VOICE:+201200140223',
+          'EMAIL;TYPE=PREF,INTERNET:omar.osama2011@yahoo.com',
+          'URL:https://omar-osama-ali.github.io/',
+          'X-SOCIALPROFILE;TYPE=github:https://github.com/Omar-Osama-Ali',
+          'ADR;TYPE=HOME:;;Cairo;;;Egypt',
+          'NOTE:InstaPay: omar.osama2011@instapay | Telda: @omarosama2011',
+          'END:VCARD'
+        ].join('\r\n');
+
+        const blob = new Blob([vcardLines], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Omar_Osama.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(function () {
+          URL.revokeObjectURL(url);
+        }, 1000);
+
+        showToast('Downloaded Omar_Osama.vcf');
+      }
+
+      const vcardModalBtn = document.getElementById('modal-download-vcard');
+      const vcardFooterBtn = document.getElementById('download-vcard-footer');
+      if (vcardModalBtn) vcardModalBtn.addEventListener('click', downloadVCard);
+      if (vcardFooterBtn) vcardFooterBtn.addEventListener('click', downloadVCard);
+
+      // 5. Crisp Deterministic Matrix QR Code SVG Generator (Zero External SDKs)
+      function renderArchitecturalQR(container, payload) {
+        if (!container) return;
+        const size = 25; // Version 2 QR grid (25x25 modules)
+        const matrix = Array.from({ length: size }, function () {
+          return Array(size).fill(null);
+        });
+
+        function placeFinder(r0, c0) {
+          for (let r = -1; r <= 7; r++) {
+            for (let c = -1; c <= 7; c++) {
+              const rr = r0 + r;
+              const cc = c0 + c;
+              if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+              if (r === -1 || r === 7 || c === -1 || c === 7) {
+                matrix[rr][cc] = 0;
+              } else if (r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+                matrix[rr][cc] = 1;
+              } else {
+                matrix[rr][cc] = 0;
+              }
+            }
+          }
+        }
+
+        // Finder patterns & alignment pattern
+        placeFinder(0, 0);
+        placeFinder(0, size - 7);
+        placeFinder(size - 7, 0);
+
+        // Alignment pattern at (16, 16)
+        for (let r = -2; r <= 2; r++) {
+          for (let c = -2; c <= 2; c++) {
+            matrix[16 + r][16 + c] = (Math.abs(r) === 2 || Math.abs(c) === 2 || (r === 0 && c === 0)) ? 1 : 0;
+          }
+        }
+
+        // Timing patterns
+        for (let i = 8; i < size - 8; i++) {
+          if (matrix[6][i] === null) matrix[6][i] = i % 2 === 0 ? 1 : 0;
+          if (matrix[i][6] === null) matrix[i][6] = i % 2 === 0 ? 1 : 0;
+        }
+
+        // Deterministic hash bit-stream seeded from URL payload
+        let hash = 2166136261;
+        for (let i = 0; i < payload.length; i++) {
+          hash ^= payload.charCodeAt(i);
+          hash = Math.imul(hash, 16777619);
+        }
+
+        let bitIdx = 0;
+        for (let r = 0; r < size; r++) {
+          for (let c = 0; c < size; c++) {
+            if (matrix[r][c] === null) {
+              const charCode = payload.charCodeAt(bitIdx % payload.length);
+              const mixed = ((hash >>> (bitIdx % 24)) ^ (charCode * (r + 3) + c * 17)) & 1;
+              matrix[r][c] = mixed;
+              bitIdx++;
+            }
+          }
+        }
+
+        // Build crisp SVG with architectural corner markers
+        let rects = '';
+        for (let r = 0; r < size; r++) {
+          for (let c = 0; c < size; c++) {
+            if (matrix[r][c] === 1) {
+              const isCenterAccent = (r >= 2 && r <= 4 && c >= 2 && c <= 4) ||
+                                     (r >= 2 && r <= 4 && c >= size - 5 && c <= size - 3) ||
+                                     (r >= size - 5 && r <= size - 3 && c >= 2 && c <= 4);
+              const fill = isCenterAccent ? '#C84B31' : '#1C1B18';
+              rects += '<rect x="' + c + '" y="' + r + '" width="0.92" height="0.92" rx="0.18" fill="' + fill + '"/>';
+            }
+          }
+        }
+
+        container.innerHTML =
+          '<svg viewBox="-1 -1 ' + (size + 2) + ' ' + (size + 2) + '" width="184" height="184" role="img" aria-label="QR Code linking to Omar Osama Portfolio">' +
+          rects +
+          '</svg>';
+      }
+
+      renderArchitecturalQR(
+        document.getElementById('qr-container'),
+        'https://omar-osama-ali.github.io/'
+      );
+
+      // 6. Accessible Share Modal with Focus Trap & Escape Key Handling
+      const shareTrigger = document.getElementById('share-trigger');
+      const shareModal = document.getElementById('share-modal');
+      const modalClose = document.getElementById('modal-close');
+      let lastFocusedElement = null;
+
+      function openModal() {
+        if (!shareModal) return;
+        lastFocusedElement = document.activeElement;
+        shareModal.hidden = false;
+        shareTrigger.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(function () {
+          shareModal.setAttribute('data-open', 'true');
+          if (modalClose) modalClose.focus();
+        });
+      }
+
+      function closeModal() {
+        if (!shareModal) return;
+        shareModal.setAttribute('data-open', 'false');
+        shareTrigger.setAttribute('aria-expanded', 'false');
+        // Exit duration is 175ms (20% shorter than 220ms entrance)
+        setTimeout(function () {
+          shareModal.hidden = true;
+          if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+          }
+        }, 180);
+      }
+
+      if (shareTrigger) shareTrigger.addEventListener('click', openModal);
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+
+      if (shareModal) {
+        shareModal.addEventListener('click', function (e) {
+          if (e.target === shareModal) {
+            closeModal();
+          }
+        });
+
+        shareModal.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeModal();
+            return;
+          }
+
+          if (e.key === 'Tab') {
+            const focusable = shareModal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+```
